@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+
+kata7
+<p>Given a string, return true if the first instance of "x" in the string is immediately followed by the string "xx".</p>
+<p>tripleX("abraxxxas") → true</p>
+<p>tripleX("xoxotrololololololoxxx") → false</p>
+
+<p>tripleX("softX kitty, warm kitty, xxxxx") → true</p>
+<p>tripleX("softx kitty, warm kitty, xxxxx") → false</p>
+
+
+<script>
+
+
+
+const tripleX = (str)=>{
+  return str.length < 3 ? false : str.indexOf('x') == -1 ? false : str.slice(str.indexOf('x'),str.indexOf('x')+2) == 'xx'
+}
+
+/*
+a można było po prostu przypomnieć sobie regexy...
+const tripleX = str => /^[^x]*xxx/.test(str);
+*/
+
+console.log(tripleX("abraxxxas") + ' true')
+console.log(tripleX("xoxotrololololololoxxx")+ ' false')
+console.log(tripleX("soft kitty, warm kitty, xxxxx")+ ' true')
+console.log(tripleX("softx kitty, warm kitty, xxxxx") + ' false')
+
+
+
+</script>
+</body>
+
+</html>
