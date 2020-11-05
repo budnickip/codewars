@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+
+kata7
+
+<p>Given a list of numbers, determine whether the sum of its elements is odd or even.</p>
+<p>Give your answer as a string matching "odd" or "even".</p>
+
+If the input array is empty consider it as: [0] (array with a zero).
+<p>odd_or_even([0])          ==  "even"</p>
+<p>odd_or_even([0, 1, 4])    ==  "odd"</p>
+<p>odd_or_even([0, -1, -5])  ==  "even"</p>
+
+
+
+<script>
+
+
+
+function oddOrEven(array) {
+   //enter code here
+   if(array.length){
+    sum = array.reduce((previous, current) =>{
+       return previous + current
+   })
+    return sum%2 == 0 ? 'even' : 'odd'    
+   }
+   return 'even'
+}
+
+/* 
+function oddOrEven(arr) {
+  return arr.reduce((a,b)=>a+b,0) % 2 ? 'odd' : 'even';
+}
+*/
+console.log(oddOrEven([0, 1, 5]))
+console.log(oddOrEven([0, 1, 3]))
+console.log(oddOrEven([0, 1, 2]))
+console.log(oddOrEven([]))
+
+
+
+</script>
+</body>
+
+</html>

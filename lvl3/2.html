@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+
+
+<p> The goal of this exercise is to convert a string to a new string where each character in the new string is "(" if that character appears only once in the original string, or ")" if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate. </p>
+<p>
+  "din"      =>  "((("
+"recede"   =>  "()()()"
+"Success"  =>  ")())())"
+"(( @"     =>  "))((" 
+</p>
+
+<script>
+function duplicateEncode(word){
+    // ...
+   var lower =  word.toLowerCase();
+   var lowerArr = word.split("");
+   var returnedtext = "";
+   var zmienna = false;
+   for(var i = 0; i < lower.length; i++){
+       zmienna = false;
+     for(var j = 0; j < lower.length; j++){      
+       if(lower[i] == lower[j] & i !== j){
+          zmienna = true;
+       }
+     }
+     if(zmienna){
+        returnedtext =  returnedtext + ")";
+     }
+     else{
+        returnedtext = returnedtext + "(";
+     }
+   } 
+   return returnedtext;
+}
+console.log(duplicateEncode("Success"));
+
+
+//rozwiązanie kogoś innego ;d:
+function duplicateEncode2(word){
+  return word
+    .toLowerCase()
+    .split('')
+    .map( function (a, i, w) {
+      return w.indexOf(a) == w.lastIndexOf(a) ? '(' : ')'
+    })
+    .join('');
+}
+
+//jeszcze inne:
+
+function duplicateEncode3(word){
+   
+   var unique='';
+   word = word.toLowerCase();
+   for(var i=0; i<word.length; i++){
+       if(word.lastIndexOf(word[i]) == word.indexOf(word[i])){
+           unique += '(';
+       }
+       else{
+           unique += ')';
+       }
+   }
+   return unique;
+
+}
+</script>
+</body>
+
+</html>

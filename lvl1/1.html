@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+
+
+true jeśli dana liczba jest kwadratowa, false jeśli nie.
+
+
+<script>
+var isSquare = function(n){
+    console.log(n);
+    if(n == 0){
+        return true;
+    } else {
+      return Number.isInteger(Math.sqrt(n));
+    }
+}
+console.log(isSquare(25));
+console.log(isSquare(0));
+console.log(isSquare(3));
+console.log(isSquare(4));
+console.log(isSquare(25)); 
+console.log(isSquare(26));
+console.log(isSquare(91));
+
+
+</script>
+</body>
+
+</html>

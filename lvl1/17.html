@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+
+
+kata 8
+Given a set of numbers, return the additive inverse of each. Each positive becomes negatives, and the negatives become positives.
+<p>invert([1,2,3,4,5]) == [-1,-2,-3,-4,-5]</p>
+<p>invert([1,-2,3,-4,5]) == [-1,2,-3,4,-5]</p>
+invert([]) == []
+
+<script>
+
+function invert(array) {
+   return array.map(item => -item);
+}
+
+
+
+console.log(invert([1,2,3,4,5]));
+console.log(invert([1,-2,3,-4,5]));
+
+
+</script>
+</body>
+
+</html>

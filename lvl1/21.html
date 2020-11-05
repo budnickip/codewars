@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+
+kata8
+
+<p>Jak poda R to sortujesz rosnąco, jak L to malejąco</p>
+<script>
+
+
+
+const flip=(d, a)=>{
+    const compareNumbersL = (a, b) =>{
+        return b - a
+    }
+    const compareNumbersR = (a, b) =>{
+        return a-b
+    }
+   return  d == 'R' ? a.sort(compareNumbersR) : d == 'L' ? a.sort(compareNumbersL) : 'error'
+}
+console.log(flip('R', [3, 2, 1, 2]))
+console.log(flip('L', [1, 4, 5, 3, 5]))
+console.log(flip('R', [ 13, 2, 4, 7, 93 ]))
+
+
+
+</script>
+</body>
+
+</html>

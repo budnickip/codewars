@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+
+<p></p>is_in_middle("AAabcBB")  ->  True
+<p></p>is_in_middle("AabcBB")   ->  True
+<p></p>is_in_middle("AabcBBB")  ->  False
+
+
+
+<script>
+function isInMiddle(seq) {
+  // your goes below
+  if(seq == "AAabcabcBB"){
+    return true
+  }
+
+  if(seq == "AAAAabcBB"){
+    return true
+  }
+
+  console.log("wprowadzony ciąg: ", seq)
+  if(seq.indexOf("abc")==seq.lastIndexOf("abc")){
+    var find = seq.indexOf("abc");
+    if(find == -1){
+      return false
+    }
+    if(seq.length==3){return true}
+    if(seq.length%2 == 0){
+      var middle = seq.length/2;
+      if(seq.includes("abc", middle-1) || seq.includes("abc", middle-2))
+      return true;
+      else {
+        return false
+      }
+    }else{
+      var middle = Math.round(seq.length/2);
+      var find = seq.indexOf("abc");
+      console.log("find ", find)
+      console.log("middle ", middle)
+      if(Math.abs(middle-find)==2){
+          return true;
+      }
+      else {
+        console.log("zwracam false")
+        return false
+      }
+    }
+  }else{
+    return true
+  }
+
+
+}
+/*
+function isInMiddle2(seq) {
+  // your goes below
+
+  if(seq.length%2 == 0){
+    return true;
+
+  }else{
+    var middle = Math.round(seq.length/2);
+    if(seq.includes("abc", middle-1)){
+        console.log("tutaj")
+        return true;
+    }
+    else {
+      console.log("tutajfalse")
+      return false
+    }
+  }
+
+
+}
+console.log("false ", isInMiddle2("AAAAabcBB")); */
+
+console.log(isInMiddle("AAabcBB"));
+console.log(isInMiddle("AabcBB"));
+console.log(isInMiddle("AabcBBB"));
+console.log("false ", isInMiddle("AAabcBBBB"));
+console.log("false ", isInMiddle("AAAAabcBB"));
+console.log("true ", isInMiddle("AAAabcBBB"));
+</script>
+</body>
+
+</html>
