@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+
+
+    kata7
+    <p>Create the function consecutive(arr) that takes an array of integers and return the minimum number of integers
+        needed to make the contents of arr consecutive from the lowest number to the highest number.</p>
+    <p>For example:
+        If arr contains [4, 8, 6] then the output should be 2 because two numbers need to be added to the array (5 and
+        7) to make it a consecutive array of numbers from 4 to 8. Numbers in arr will be unique.</p>
+
+
+
+    <script>
+ // sprawdź ile elementów jest w tablicy i wtedy j od 0 do ilości elementów tablicy i wtedy porównuj i z arr[j]
+    function consecutive(arr) {
+        function compareNumbers(a, b) {
+            return a - b;
+        }
+        var arr2 = arr.sort(compareNumbers);
+        var counter = 0;
+        var j = 0;
+        var tab = []
+        for(let i = arr2[0]; i <= arr2[arr2.length-1]; i++){
+            tab.push(i)
+        }
+        for(let i = 0; i< arr2.length; i++){
+            while(j<tab.length){
+                if(arr2[i]==tab[j]){
+                    j++
+                    break;
+                }else{
+                    counter++;
+                    j++;
+                }
+            }
+        }
+        return counter;
+    //code me
+    }
+
+    /* 
+    genialne rozwiązanie:
+    function consecutive(arr){
+        let l = arr.length;
+        return l ? Math.max(...arr) - Math.min(...arr) - l + 1 : 0;
+    }
+    */
+
+        /*
+        a można było po prostu przypomnieć sobie regexy...
+        const tripleX = str => /^[^x]*xxx/.test(str);
+        */
+
+        console.log(consecutive([4,8,6]) + " odp2")
+        console.log(consecutive([1,2,3,4]) + " odp0")
+        console.log(consecutive([])+ "odp0")
+        console.log(consecutive([1])+ "odp0")
+        console.log(consecutive([1,2,3,4,-1,-2]) + " odp1")
+
+
+
+    </script>
+</body>
+
+</html>
