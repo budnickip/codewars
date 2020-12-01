@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+
+
+
+    <p>
+        The prime numbers are not regularly spaced. For example from 2 to 3 the step is 1. From 3 to 5 the step is 2.
+        From 7 to 11 it is 4. Between 2 and 50 we have the following pairs of 2-steps primes:
+    </p>
+    <p>Znajdź pierwszą parę liczb pierwszych, z zakresu liczb od drugiego parametru, do trzeciego parametru funkcji, którą oddziela
+        odległość pierwszego parametru.
+    </p>
+    <p>Examples:</p>
+    <p>step(2,100,110) --> [101, 103]</p>
+    <p>step(4,100,110) --> [103, 107]</p>
+    <p>step(2, 5, 5) --> []</p>
+    <p>step(8,300,400) --> [359, 367]</p>
+    <p>step(10,300,400) --> [307, 317]</p>
+    <script>
+
+ /*function step(g, m, n) {
+    // your code
+    var arr=[]
+   for(let i = m; i< n; i++){
+        if(iterator<2){
+            console.log("jestem: " + i);
+            arr.push(i)
+            iterator=iterator+1;
+        }else{
+            break;
+        } 
+        console.log(i)
+    }
+    console.log("m=" + m + " n=" + n)
+    var i = m-1;
+    var maxI = 0;
+    while(i<n){
+        i=i+g;
+        if(maxI < 2){
+            arr.push(i);
+            maxI=maxI+1
+        }
+       // console.log(i)
+    }
+    if(maxI<2){
+        return []
+    }else{
+        return arr
+    } 
+}*/
+function step(g, m, n){
+    var primeNumbers = []
+    var resoult = []
+    for(let i = m; i < n; i++){
+        let prime = true;
+        for(let j = 2; j< i; j++ ){
+            if(i%j===0){
+                prime = false;
+            }
+        }
+        if(prime){
+            primeNumbers.push(i)
+        }
+    }
+    for(let i = 0; i < primeNumbers.length; i++){
+        for(let j = 0; j < primeNumbers.length; j++){
+            if(primeNumbers[i]-primeNumbers[j] == g){
+                resoult.push(primeNumbers[j])
+                resoult.push(primeNumbers[i])
+                break;
+            }
+        }
+    }
+    return resoult.slice(0,2)
+}
+
+  /*  primeNumbers.reduce((previousValue, currentValue)=>{
+        console.log("previousValue: " + previousValue + " currentValue: " + currentValue + " gap: "+ g)
+        if(currentValue-previousValue == g){
+            resoult.push(previousValue)
+            resoult.push(currentValue)
+        }
+        return currentValue;
+    })
+    if(resoult.length > 2){
+        finish.push(resoult[0])
+        finish.push(resoult[1])
+    }else{
+        finish = resoult
+    } */
+
+        //console.log(sumDigPow(1, 10));
+        console.log(step(2,100,110) + " wynik " + [101, 103]);
+  console.log(step(4,100,110) + " wynik: " + [103, 107]);
+  console.log(step(6,100,110) + " wynik: " + [101, 107]);
+  console.log(step(8,300,400) + " wynik: " + [359, 367]);
+  console.log(step(10,300,400)+ " wynik: " + [307, 317]);
+  //console.log(sumDigPow(10, 150));
+
+    </script>
+</body>
+
+</html>
