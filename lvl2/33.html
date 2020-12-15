@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+
+
+    kata7
+<p>Znajdź zabójce</p>
+
+   
+    <script>
+function killer(suspectInfo, dead) {
+  //your code here...
+  var sum = 0;
+  for(const key in suspectInfo){
+    sum = 0;
+    dead.forEach(item=>{
+      if(suspectInfo[key].includes(item)){
+        sum++
+      }
+    })
+    if(sum==dead.length){
+      return key
+    }
+  }
+}
+        console.log(killer({'James': ['Jacob', 'Bill', 'Lucas'], 'Johnny': ['David', 'Kyle', 'Lucas'], 'Peter': ['Lucy', 'Kyle']}, ['Lucas', 'Bill']), 'James')
+
+    
+
+    </script>
+</body>
+
+</html>
