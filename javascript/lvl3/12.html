@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+
+
+
+    <p>
+        I want to know the size of the longest consecutive elements of X in Y. You will receive two arguments: items and key. Return the length of the longest segment of consecutive keys in the given items.
+    </p>
+    <p>The items and the key will be either an integer or a string
+    </p>
+    <p>If the key does not appear in the items, return 0</p>
+    <p>Examples</p>
+    <p>90000, 0           -->  4</p>
+    <p>"abcdaaadse", "a"  -->  3</p>
+    <p>"abcdaaadse", "z"  -->  0</p>
+
+    <script>
+    function getConsectiveItems(items, key){
+        const array = items.toString().split('')
+        const keyS = key.toString()
+        if(array.indexOf(keyS.toString()) === -1){
+            return 0
+        }
+        let counterArr = []
+        let counter = 0
+        array.forEach(item =>{
+            if(item == keyS){
+                counter++
+            }else{
+                counterArr.push(counter)
+                counter = 0;
+            }
+        })
+        counterArr.push(counter)
+        function compareNumbers(a, b) {
+          return b - a
+        }
+        counterArr.sort(compareNumbers)
+        return counterArr[0]
+    }
+
+
+        console.log(getConsectiveItems(90000, 0) + ' 4');
+ console.log(getConsectiveItems('ascasdaiiiasdacasdiiiiicasdasdiiiiiiiiiiisdasdasdiii', 'i') + ' 11');
+  console.log(getConsectiveItems('abcdaaadse', 'a') + ' 3');
+  console.log(getConsectiveItems('abcdaaadse', 'z') + ' 0'); 
+
+  /* lepiej:
+  function getConsectiveItems(items, key) {
+  items = items.toString();
+  key = key.toString();
+  let max = 0, current = 0;
+  for (let c of items) {
+    current = c == key ? current + 1 : 0;
+    if (current > max)
+      max = current;
+  }
+  return max;
+}*/
+
+
+    </script>
+</body>
+
+</html>
